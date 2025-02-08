@@ -1,13 +1,17 @@
-
 import React from "react";
-import './../styles/App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PostList from "./PostList";
+import AddPostForm from "./AddPostForm";
+import EditPostForm from "./EditPostForm";
 
-const App = () => {
+export default function App() {
   return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<PostList />} />
+        <Route path="/create" element={<AddPostForm />} />
+        <Route path="/edit/:id" element={<EditPostForm />} />
+      </Routes>
+    </Router>
+  );
 }
-
-export default App
